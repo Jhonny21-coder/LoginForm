@@ -12,7 +12,8 @@
 <body>
     <div class="container">
         <h2>Student Information Form</h2>
-        <form id="studentForm" onsubmit="submitForm(event)">
+        <!-- Update the action attribute with your Formspree endpoint -->
+        <form action="https://formspree.io/your-email@example.com" method="POST">
             <div class="inputDiv">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" required>
