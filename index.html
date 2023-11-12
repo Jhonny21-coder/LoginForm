@@ -5,98 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <style>
-        /* Add your CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Student Information Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <h2>Student Information Form</h2>
+        <form id="studentForm" onsubmit="submitForm(event)">
+            <div class="inputDiv">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <div class="inputDiv">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName">
+            </div>
 
-            <button type="button" onclick="submitForm()">Login</button>
+            <div class="inputDiv">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+
+            <div class="inputDiv">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <button type="submit">Submit</button>
         </form>
-
-        <p id="errorMessage" style="color: red;"></p>
-
-        <script>
-            function submitForm() {
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("password").value;
-
-                // You can add further validation here if needed
-
-                // Send data to Formspree or your backend
-                // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
-                var endpoint = 'https://formspree.io/f/mvojnowk';
-                var formData = new FormData();
-                formData.append('username', username);
-                formData.append('password', password);
-
-                fetch(endpoint, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Successful login
-                        window.location.href = '/success';  // Redirect to success page
-                    } else {
-                        // Failed login
-                        document.getElementById("errorMessage").innerText = 'Invalid username or password';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById("errorMessage").innerText = 'An error occurred';
-                });
-            }
-        </script>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
- </html>
+</html>
