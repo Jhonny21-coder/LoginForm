@@ -1,38 +1,102 @@
-<!doctype html>
-<html lang="en"> 
- <head> 
-  <meta charset="UTF-8"> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Login Form</title> 
-  <link rel="stylesheet" href="style.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
- </head> 
- <body> 
-  <div class="container"> 
-   <h2 class="t-center">Login</h2> 
-   <form action="https://formspree.io/shanemarahay@gmail.com" method="POST"> 
-    <div class="inputDiv"> <label for="name" class="username">Username</label> 
-     <div class="userArea"> <i class="fa-solid fa-user"></i>
-      <input type="text" name="name" id="name" placeholder="Type your username"> 
-     </div> 
-     <hr> 
-    </div> 
-    <div class="inputDiv"> <label for="password" class="username">Password</label> 
-     <div class="userArea"> <i class="fa-solid fa-key"></i>
-      <input type="password" name="password" id="password" placeholder="Type your password"> 
-     </div> 
-     <hr> 
-    </div> <span class="forgotPassword">Forgot password?</span> <button class="btn">Login</button> 
-    <div class="formBottom"> 
-     <p>Or Sign Up using</p> 
-     <ul class="flexUl"> <a href="https://www.faceboook.com" target="_blank"> <li><i class="fa-brands fa-facebook-f"></i></li> </a> <a href="https://www.twitter.com" target="_blank"> <li><i class="fa-brands fa-twitter"></i></li> </a> <a href="https://www.google.com" target="_blank"> <li><i class="fa-brands fa-google"></i></li> </a> 
-     </ul> 
-     <p class="signUp">Or Sign Up using</p> 
-     <p id="signUp">SIGN UP</p> 
-    </div> 
-   </form> 
-  </div> <!-- Login Form using HTML and CSS by raju_webdev --> 
-  <script src="script.js"></script> 
- </body>
-  </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="button" onclick="submitForm()">Login</button>
+        </form>
+
+        <p id="errorMessage" style="color: red;"></p>
+
+        <script>
+            function submitForm() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                // You can add further validation here if needed
+
+                // Send data to Formspree or your backend
+                // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
+                var endpoint = 'https://formspree.io/shanemarahay@gmail.com';
+                var formData = new FormData();
+                formData.append('username', username);
+                formData.append('password', password);
+
+                fetch(endpoint, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Successful login
+                        window.location.href = '/success';  // Redirect to success page
+                    } else {
+                        // Failed login
+                        document.getElementById("errorMessage").innerText = 'Invalid username or password';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("errorMessage").innerText = 'An error occurred';
+                });
+            }
+        </script>
+    </div>
+</body>
+
+ </html>
