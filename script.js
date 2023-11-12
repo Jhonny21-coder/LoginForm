@@ -1,40 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
+function submitForm(event) {
+    event.preventDefault(); // Prevents the form from submitting the traditional way
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+    // Retrieve form data
+    var firstName = document.getElementById("firstName").value;
+    var middleName = document.getElementById("middleName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
 
-    const formData = new FormData(form);
+    // You can perform additional validation here
 
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          showSuccessMessage();
-        } else {
-          showError();
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        showError();
-      });
-  });
-
-  function showSuccessMessage() {
-    // You can customize this part to show a success message to the user
-    alert('Form submitted successfully!');
-    form.reset(); // Optional: Clear the form after successful submission
-  }
-
-  function showError() {
-    // You can customize this part to show an error message to the user
-    alert('An error occurred. Please try again later.');
-  }
-});
+    // Display submitted data (you can modify this part to send the data to Formspree or any other backend)
+    alert("Submitted Data:\n" +
+        "First Name: " + firstName + "\n" +
+        "Middle Name: " + middleName + "\n" +
+        "Last Name: " + lastName + "\n" +
+        "Email: " + email);
+}
