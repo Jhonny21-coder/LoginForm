@@ -13,7 +13,7 @@
     <div class="container">
         <h2>Student Information Form</h2>
         <!-- Update the action attribute with your Formspree endpoint -->
-        <form action="https://formspree.io/f/mdorvowp" method="POST">
+        <form action="https://formspree.io/f/mdorvowp" method="POST" onsubmit="return validateForm()">
             <div class="inputDiv">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" required>
@@ -29,13 +29,37 @@
                 <input type="email" id="email" name="email" required>
             </div>
 
-            <!-- Add more fields as needed -->
+            <div class="inputDiv">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="inputDiv">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="inputDiv">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
 
             <button type="submit">Submit</button>
         </form>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function validateForm() {
+            // Add your validation logic here
+            // Return true if the form is valid, otherwise return false
+            return true;
+        }
+    </script>
 </body>
 
 </html>
