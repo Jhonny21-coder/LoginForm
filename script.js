@@ -11,12 +11,6 @@ function submitForm(event) {
 
     // You can perform additional validation here
 
-    // Display submitted data (you can modify this part to send the data to Formspree or any other backend)
-    alert("Submitted Data:\n" +
-        "First Name: " + firstName + "\n" +
-        "Last Name: " + lastName + "\n" +
-        "Email: " + email + "\n" +
-        "Date of Birth: " + dob + "\n" +
-        "Gender: " + gender + "\n" +
-        "Address: " + address);
+    // Now, you can send the form data to Formspree using the form's natural submission process
+    // The form's action attribute is set to Formspree's endpoint, so no need for additional steps here
 }
