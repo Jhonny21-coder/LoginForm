@@ -7,52 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Information Form</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div class="container">
         <h2>Student Information Form</h2>
-
-        <form
- action="https://formspree.io/f/xwkdjpkv"
-  method="POST"
->
+        <!-- Update the action attribute with your Formspree endpoint -->
+        <form action="https://formspree.io/f/mdorvowp" method="POST">
             <div class="inputDiv">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Type your first name" required>
+                <input type="text" id="firstName" name="firstName" required>
             </div>
 
             <div class="inputDiv">
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Type your last name" required>
+                <input type="text" id="lastName" name="lastName" required>
             </div>
 
             <div class="inputDiv">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Type your email" required>
+                <input type="email" id="email" name="email" required>
             </div>
 
-            <div class="inputDiv">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
-
-            <div class="inputDiv">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div class="inputDiv">
-                <label for="address">Address:</label>
-                <textarea id="address" name="address" rows="3" placeholder="Type your address" required></textarea>
-            </div>
+            <!-- Add more fields as needed -->
 
             <button type="submit">Submit</button>
         </form>
