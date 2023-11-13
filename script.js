@@ -3,14 +3,16 @@ function submitForm(event) {
 
     // Retrieve form data
     var firstName = document.getElementById("firstName").value;
+    var middleName = document.getElementById("middleName").value;
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
-    var dob = document.getElementById("dob").value;
-    var gender = document.getElementById("gender").value;
-    var address = document.getElementById("address").value;
 
     // You can perform additional validation here
 
-    // Now, you can send the form data to Formspree using the form's natural submission process
-    // The form's action attribute is set to Formspree's endpoint, so no need for additional steps here
+    // Display submitted data (you can modify this part to send the data to Formspree or any other backend)
+    alert("Submitted Data:\n" +
+        "First Name: " + firstName + "\n" +
+        "Middle Name: " + middleName + "\n" +
+        "Last Name: " + lastName + "\n" +
+        "Email: " + email);
 }
